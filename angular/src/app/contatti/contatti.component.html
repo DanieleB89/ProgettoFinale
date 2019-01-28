@@ -1,0 +1,145 @@
+<div class="container">          
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Cognome</th>
+        <th>telefono</th>
+        <th>email</th>
+        <th>cliente</th>
+        <th>ruolo</th>
+        <th>reparto</th>
+        <th>note</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+        <tr *ngFor="let item of lista">
+            <td [class.my-class]="isClassVisibile(item)">{{item.nome}}</td>
+            <td [class.my-class]="isClassVisibile(item)">{{item.cognome}}</td>
+            <td [class.my-class]="isClassVisibile(item)">{{item.telefono}}</td>
+            <td [class.my-class]="isClassVisibile(item)">{{item.email}}</td>
+            <td [class.my-class]="isClassVisibile(item)">{{item.idcliente}}</td>
+            <td [class.my-class]="isClassVisibile(item)">{{item.ruolo}}</td>
+            <td [class.my-class]="isClassVisibile(item)">{{item.reparto}}</td>
+            <td [class.my-class]="isClassVisibile(item)">{{item.note}}</td>
+            <td [class.my-class]="isClassVisibile(item)"><button type="button" (click)="selection(item)" class="btn btn-info">Select</button></td>
+          </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+  <button type="button" (click)="addItem()" class="btn btn-info">+</button>
+</div>
+
+
+
+
+<div class="container">
+
+  <form (ngSubmit)="save(signupForm)" #signupForm="ngForm" novalidate *ngIf="proponiForm">
+  
+
+  
+
+
+
+
+  
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group" [ngClass]="{'has-error': (signupForm.touched || signupForm.dirty) && !signupForm.valid }">
+          <label for="nome">Nome:</label>
+          <input type="text" minlength="3" class="form-control" id="nome" name="nome"  [(ngModel)]="contatto.nome" #nome="ngModel" >
+          <!--<span *ngIf="nome.errors.minlength" class="redtext">Nome troppo corto</span>-->
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group" [ngClass]="{'has-error': (signupForm.touched || signupForm.dirty) && !signupForm.valid }">
+          <label for="cognome">Cognome:</label>
+          <input type="text" minlength="3" class="form-control" id="cognome" name="cognome" pattern="[A-Za-z]+" #cognome="ngModel"  [(ngModel)]="contatto.cognome" >
+          <!--<span *ngIf="cognome.errors.minlength" class="redtext">Nome non valido</span>-->
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group" [ngClass]="{'has-error': (signupForm.touched || signupForm.dirty) && !signupForm.valid }">
+          <label for="telefono">Telefono:</label>
+          <input type="text" minlength="1" class="form-control" id="telefono" name="telefono" pattern="[0-9]+" #telefono="ngModel"  [(ngModel)]="contatto.telefono" >
+          <!--<span *ngIf="telefono.errors.pattern" class="redtext">Numero di telefono non valido</span>-->
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group" [ngClass]="{'has-error': (signupForm.touched || signupForm.dirty) && !signupForm.valid }">
+          <label for="email">E-mail:</label>
+          <input type="text" minlength="1" class="form-control" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+" #email="ngModel" [(ngModel)]="contatto.email" >
+          <!--<span *ngIf="email.errors.pattern" class="redtext">Indirizzo e-mail non valido</span>-->
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group" [ngClass]="{'has-error': (signupForm.touched || signupForm.dirty) && !signupForm.valid }">
+          <label for="idcliente">Id cliente di riferimento:</label>
+          <input type="number" minlength="1" class="form-control" id="idcliente" name="idcliente" [(ngModel)]="contatto.idcliente" >
+          <span *ngIf="!signupForm.valid">Id cliente di riferimento non valido</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group" [ngClass]="{'has-error': (signupForm.touched || signupForm.dirty) && !signupForm.valid }">
+          <label for="ruolo">Ruolo:</label>
+          <input type="text" minlength="1" class="form-control" id="ruolo" name="ruolo" [(ngModel)]="contatto.ruolo" >
+          <span *ngIf="!signupForm.valid">Ruolo non valido</span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group" [ngClass]="{'has-error': (signupForm.touched || signupForm.dirty) && !signupForm.valid }">
+          <label for="reparto">Reparto:</label>
+          <input type="text" minlength="1" class="form-control" id="reparto" name="reparto" [(ngModel)]="contatto.reparto" >
+          <span *ngIf="!signupForm.valid">Reparto non valido</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group" [ngClass]="{'has-error': (signupForm.touched || signupForm.dirty) && !signupForm.valid }">
+          <label for="reparto">Note:</label>
+          <textarea type="text" minlength="1" class="form-control" id="note" name="note" cols="8" rows="1" [(ngModel)]="contatto.note" ></textarea>
+          <span *ngIf="!signupForm.valid">Note non valide</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+    
+      </div>
+    </div>
+
+
+
+  
+  
+   
+  
+    <button type="submit" class="btn btn-primary" >Insert</button>
+    <button type="button" (click)="update()" class="btn btn-primary">Update</button>
+    <button type="button" (click)="delete()" class="btn btn-primary">Delete</button>
+
+   
+
+
+  </form>
+  
+  </div>
+
+  
+  <div class="tm-5">
+  <button type="button" (click)="export(lista)" class="btn btn-primary">Export</button>
+</div>

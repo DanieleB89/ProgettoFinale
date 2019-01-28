@@ -1,0 +1,75 @@
+<fusioncharts
+  type="spline"
+  width="600"
+  height="400"
+  [dataSource]="dataSource">
+</fusioncharts>
+<!--
+<div class="container">
+  <h2>Striped Rows</h2>
+  <p>The .table-striped class adds zebra-stripes to a table:</p>            
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nome corso</th>
+        <th>Docente</th>
+        <th>Durata</th>
+        <th>Prezzo</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+        <tr *ngFor="let item of lista">
+            <td>{{item.nome }}</td>
+            <td>{{item.docente }}</td>
+            <td>{{item.durata }}</td>
+            <td>{{item.prezzo | currency:'EUR'}}</td>
+            <td><button type="button" (click)="selection(item)" class="btn btn-info">Select</button></td>
+          </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+<div class="container">
+
+  <form (ngSubmit)="save(signupForm)" #signupForm="ngForm" novalidate >
+  
+    <div class="form-group" [ngClass]="{'has-error': (signupForm.touched || signupForm.dirty) && !signupForm.valid }">
+      <label for="name">nome:</label>
+      <input type="text" minlength="3" class="form-control" id="name" name="nome" [(ngModel)]="corso.nome" >
+      <span *ngIf="!signupForm.valid">Nome corso non valido</span>
+    </div>
+  
+    <div class="form-group">
+      <label for="prof">Professore:</label>
+      <input type="text" class="form-control" id="prof" name="docente" [(ngModel)]="corso.docente">
+    </div>
+  
+    <div class="form-group">
+      <label for="data">Data Inizio:</label>
+      <input type="text" class="form-control" id="data" name="durata" [(ngModel)]="corso.durata">
+    </div>
+  
+    <div class="form-group">
+      <label for="price">Prezzo:</label>
+      <input type="number" class="form-control" id="price" name="prezzo" [(ngModel)]="corso.prezzo">
+    </div>
+  
+  
+   
+  
+    <button type="submit" class="btn btn-primary">Insert</button>
+    <button type="button" (click)="delete()" class="btn btn-primary">Delete</button>
+    <button type="button" (click)="update()" class="btn btn-primary">Update</button>
+
+  </form>
+  
+  </div>
+
+-->
+  
+  
